@@ -1,0 +1,217 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.App-body {
+  background-color: #fdfbfc;
+  position: relative;
+  box-sizing: border-box;
+  .catalog {
+    max-width: 600px;
+    width: 100%;
+    min-height: 300px;
+    padding: 10px;
+    margin: 25px auto;
+    background-color: #282c34;
+    color: white;
+    &-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 10px;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      &_item {
+        display: block;
+        width: 100%;
+        text-align: left;
+        &-title {
+          position: relative;
+          display: block;
+          background-color: inherit;
+          color: white;
+          font-size: 14px;
+          margin: 2px 0;
+          padding-left: 17px;
+          transition: all 0.2s;
+          overflow: hidden;
+          .actions {
+            position: absolute;
+            display: flex;
+            top: -40px;
+            right: 0;
+            transition: all 0.4s;
+            &_edit,
+            &_add,
+            &_delete {
+              margin: 0 5px;
+              cursor: pointer;
+            }
+          }
+        }
+        &-title:hover {
+          background-color: rgb(59, 59, 59);
+          .actions {
+            top: 0;
+          }
+        }
+        &-title.parent {
+          cursor: pointer;
+        }
+        &-title.parent:after {
+          position: absolute;
+          content: "";
+          display: block;
+          top: 6px;
+          left: 3px;
+          width: 5px;
+          height: 5px;
+          border-top: 2px solid white;
+          border-right: 2px solid white;
+          transform: rotate(45deg);
+          transition: all 0.3s;
+        }
+        &-title.parent.show:after {
+          transform: rotate(135deg);
+        }
+        &-title.parent.show ~ .catalog-box {
+          width: auto;
+          height: auto;
+        }
+        &-title.active {
+          background-color: #1daa1a;
+          .actions {
+            top: 0;
+          }
+        }
+      }
+      /* &_item.show {
+        .catalog-box_item-title.parent:after {
+          transform: rotate(135deg);
+        }
+      } */
+    }
+    .catalog-box.root {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .dialog-box {
+    display: none;
+    position: fixed;
+    background-color: rgba(95, 95, 95, 0.4);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    .dialog-wrapper {
+      position: fixed;
+      top: 150px;
+      left: 0;
+      right: 0;
+      background-color: white;
+      max-width: 450px;
+      width: 70%;
+      border: 1px solid #4a4b4a;
+      border-radius: 5px;
+      margin: 0 auto;
+      padding: 20px;
+      color: black;
+      box-shadow: 0px 20px 35px rgb(63, 40, 26 / 10%);
+      .dialog-head {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+      .dialog-body {
+        margin-bottom: 35px;
+        font-size: 1rem;
+        input {
+          display: block;
+          width: 80%;
+          height: 32px;
+          border-radius: 5px;
+          border: 1px solid #333;
+          padding: 0 15px;
+          outline: none;
+        }
+        .error {
+          display: block;
+          color: red;
+          width: 87%;
+          font-size: 0.9rem;
+          text-align: left;
+        }
+      }
+      .dialog-foot {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &_btn {
+          min-width: 70px;
+          background-color: black;
+          border: none;
+          border-radius: 5px;
+          outline: none;
+          color: white;
+          padding: 5px 10px;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+        &_btn.green {
+          background-color: green;
+        }
+        &_btn.yellow {
+          background-color: yellow;
+        }
+        &_btn.red {
+          background-color: red;
+        }
+        &_btn:disabled {
+          color: #979393;
+          background-color: #d3cfd3;
+          cursor: default;
+        }
+      }
+    }
+  }
+  .dialog-box.show {
+    display: block;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

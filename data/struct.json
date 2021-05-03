@@ -1,0 +1,44 @@
+{
+  "dir": [
+    {
+      "id": "5e257721961a1",
+      "name": "root",
+      "parent_id": "null"
+    },
+    {
+      "id": "5e25774a63bf7",
+      "name": "app",
+      "parent_id": "5e257721961a1"
+    },
+    {
+      "id": "5e257770389a7",
+      "name": "src",
+      "parent_id": "5e25774a63bf7"
+    },
+    {
+      "id": "5e25779790362",
+      "name": "cache",
+      "parent_id": "5e25774a63bf7"
+    },
+    {
+      "id": "5e2577c14c477",
+      "name": "logs",
+      "parent_id": "5e257721961a1"
+    },
+    {
+      "id": "5e2577e0c3693",
+      "name": "2020-01-16",
+      "parent_id": "5e2577c14c477"
+    },
+    {
+      "id": "5e2577e700e97",
+      "name": "2020-01-17",
+      "parent_id": "5e2577c14c477"
+    },
+    {
+      "id": "5e257818aa716",
+      "name": "2020-01-18",
+      "parent_id": "5e2577c14c477"
+    }
+  ]
+}
